@@ -48,6 +48,24 @@ var DurationHelper = {
             .join(":")
 };
 
+var ChannelCollection = function(usernames) {
+    this.channels = usernames.map(username => new Channel(username));
+
+    this.loadChannels = function() {
+        return Promise.all(this.channels.map(channel => channel.load()));
+    };
+
+    this.render = function() {
+        var $content = document.getElementById("content");
+
+        this.channels.forEach(channel => {
+            $content.appendChild(channel.render());
+
+            channel.renderVideos();
+        });
+    };
+}
+
 var Channel = function(username) {
     this.username = username;
     this.videos = [];
@@ -67,7 +85,9 @@ var Channel = function(username) {
                 this.id        = data.id;
                 this.title     = data.snippet.title;
                 this.avatarUrl = data.snippet.thumbnails.default.url;
-        });
+            })
+            .then(this.getVideos.bind(this))
+            .then(this.loadVideos.bind(this));
     };
 
     this.getVideos = function() {
@@ -196,15 +216,6 @@ function request(endpoint, options) {
     return fetch(`${BASE_URL}${endpoint}?${params}`);
 }
 
-var $content = document.getElementById("content");
+let channels = new ChannelCollection(USERNAMES);
 
-USERNAMES.map(username => new Channel(username))
-        .forEach(channel => {
-            channel.load().then(() => {
-                $content.appendChild(channel.render());
-
-                channel.getVideos()
-                       .then(channel.loadVideos.bind(channel))
-                       .then(channel.renderVideos.bind(channel));
-            });
-        });
+channels.loadChannels().then(channels.render.bind(channels));
