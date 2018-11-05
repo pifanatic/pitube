@@ -28,6 +28,18 @@ body {
     margin-left: 8px;
 }
 
+.youtube-icon {
+    color: #999;
+    cursor: pointer;
+    font-size: 32px !important;
+    margin-left: 20px;
+    vertical-align: middle;
+}
+
+.youtube-icon:hover {
+    color: red;
+}
+
 .videos {
     display: flex;
     flex-wrap: wrap;
