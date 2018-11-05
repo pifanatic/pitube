@@ -1,4 +1,4 @@
-const BASE_URL    = "https://www.googleapis.com/youtube/v3";
+const API_URL     = "https://www.googleapis.com/youtube/v3";
 const YOUTUBE_URL = "https://youtube.com/watch?v=";
 
 const DEFAULT_PARAMS = {
@@ -213,7 +213,7 @@ function request(endpoint, options) {
                        .map(key => `${key}=${options[key]}`)
                        .join("&");
 
-    return fetch(`${BASE_URL}${endpoint}?${params}`);
+    return fetch(`${API_URL}${endpoint}?${params}`);
 }
 
 let channels = new ChannelCollection(USERNAMES);
