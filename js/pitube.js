@@ -1,5 +1,5 @@
 const API_URL     = "https://www.googleapis.com/youtube/v3";
-const YOUTUBE_URL = "https://youtube.com/watch?v=";
+const YOUTUBE_URL = "https://www.youtube.com/";
 
 const DEFAULT_PARAMS = {
     part: "snippet",
@@ -177,7 +177,7 @@ var Video = function(videoId) {
         var $video = document.createElement("div");
         $video.classList.add("video");
         $video.addEventListener("click", () => {
-            window.open(`${YOUTUBE_URL}${this.id}`)
+            window.open(`${YOUTUBE_URL}watch?v=${this.id}`)
         });
 
         var $thumb = document.createElement("img");
