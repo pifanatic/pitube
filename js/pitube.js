@@ -198,6 +198,7 @@ var Video = function(videoId) {
                 DateHelper.formatTime(this.publishedAt) +
             `</span>` +
             `<span class="video-duration">` +
+                `<span class="icon-clock fa fa-clock-o"></span>` +
                 DurationHelper.format(this.duration) +
             `</span>`;
 

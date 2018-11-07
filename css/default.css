@@ -97,3 +97,7 @@ body {
     font-weight: bold;
     right: 5px;
 }
+
+.video-duration .icon-clock {
+    margin-right: 3px;
+}
