@@ -194,6 +194,7 @@ var Video = function(videoId) {
             `<img class="video-thumbnail" src="${this.thumbnailUrl}"/>` +
             `<div class="video-title">${this.title}</div>` +
             `<span class="video-info">` +
+                `<span class="icon-calendar fa fa-calendar"></span>` +
                 `${DateHelper.formatDate(this.publishedAt)}, ` +
                 DateHelper.formatTime(this.publishedAt) +
             `</span>` +
