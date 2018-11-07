@@ -185,31 +185,21 @@ var Video = function(videoId) {
     this.render = function() {
         var $video = document.createElement("div");
         $video.classList.add("video");
+
         $video.addEventListener("click", () => {
             window.open(`${YOUTUBE_URL}watch?v=${this.id}`)
         });
 
-        var $thumb = document.createElement("img");
-        $thumb.setAttribute("src", this.thumbnailUrl);
-        $thumb.classList.add("video-thumbnail");
-        $video.appendChild($thumb);
-
-        var $title = document.createElement("div");
-        $title.classList.add("video-title");
-        $title.innerText = this.title;
-        $video.appendChild($title);
-
-        var $info = document.createElement("span");
-        $info.classList.add("video-info");
-        $info.innerText = DateHelper.formatDate(this.publishedAt) + ", " +
-                          DateHelper.formatTime(this.publishedAt);
-        $video.appendChild($info);
-
-        var $duration = document.createElement("span");
-        $duration.classList.add("video-duration");
-        $duration.innerText = DurationHelper.format(this.duration);
-
-        $video.appendChild($duration);
+        $video.innerHTML +=
+            `<img class="video-thumbnail" src="${this.thumbnailUrl}"/>` +
+            `<div class="video-title">${this.title}</div>` +
+            `<span class="video-info">` +
+                `${DateHelper.formatDate(this.publishedAt)}, ` +
+                DateHelper.formatTime(this.publishedAt) +
+            `</span>` +
+            `<span class="video-duration">` +
+                DurationHelper.format(this.duration) +
+            `</span>`;
 
         return $video;
     }
