@@ -122,25 +122,13 @@ var Channel = function(username) {
         this.$el = document.createElement("div");
         this.$el.classList.add("channel")
 
-        var $avatar = document.createElement("img");
-        $avatar.setAttribute("src", this.avatarUrl);
-        $avatar.classList.add("channel-avatar");
-
-        var $title = document.createElement("span");
-        $title.innerText = this.title;
-        $title.classList.add("channel-title");
-
-        var $icon = document.createElement("span");
-        $icon.classList.add("youtube-icon", "fa", "fa-youtube");
-        $icon.setAttribute("title", `Visit ${this.username} on YouTube`);
-
-        $icon.addEventListener("click", () => {
-            window.open(`${YOUTUBE_URL}user/${this.username}/videos`)
-        });
-
-        this.$el.appendChild($avatar);
-        this.$el.appendChild($title);
-        this.$el.appendChild($icon);
+        this.$el.innerHTML =
+            `<img class="channel-avatar" src="${this.avatarUrl}"/>` +
+            `<span class="channel-title">${this.title}</span>` +
+            `<span class="youtube-icon fa fa-youtube"` +
+                   `title="Visit ${this.username} on YouTube"` +
+                   `onclick=window.open("${YOUTUBE_URL}user/${this.username}/videos")>` +
+            `</span>`;
 
         return this.$el;
     };
