@@ -1,37 +1,11 @@
+import * as DateHelper from "./dateHelper.js";
+
 const API_URL     = "https://www.googleapis.com/youtube/v3";
 const YOUTUBE_URL = "https://www.youtube.com/";
 
 const DEFAULT_PARAMS = {
     part: "snippet",
     key: API_KEY,
-};
-
-var DateHelper = {
-    isToday(date) {
-        let today = new Date()
-
-        return today.getDate()  === date.getDate()  &&
-               today.getMonth() === date.getMonth() &&
-               today.getYear()  === date.getYear();
-    },
-    isYesterday(date) {
-        var dateToCheck = new Date(date);
-
-        dateToCheck.setDate(dateToCheck.getDate() + 1); // add one day
-
-        return this.isToday(dateToCheck);
-    },
-    formatDate(date) {
-        if (this.isToday(date)) {
-            return "Today";
-        } else if (this.isYesterday(date)) {
-            return "Yesterday";
-        }
-        return date.toLocaleString("en", { weekday: "short", day: "2-digit", month: "short" });
-    },
-    formatTime(date) {
-        return date.toLocaleString("en", { minute: "2-digit", hour: "2-digit" });
-    }
 };
 
 var DurationHelper = {
