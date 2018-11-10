@@ -1,12 +1,7 @@
 import * as DateHelper from "./dateHelper.js";
+import * as HTTP       from "./http.js";
 
-const API_URL     = "https://www.googleapis.com/youtube/v3";
 const YOUTUBE_URL = "https://www.youtube.com/";
-
-const DEFAULT_PARAMS = {
-    part: "snippet",
-    key: API_KEY,
-};
 
 var DurationHelper = {
     /*
@@ -51,7 +46,7 @@ var Channel = function(username) {
             fields: "items(id%2Csnippet(thumbnails%2Fdefault%2Furl%2Ctitle))"
         }
 
-        return request("/channels", options)
+        return HTTP.request("/channels", options)
             .then(res => res.json())
             .then(data => {
                 data = data.items[0];
@@ -73,7 +68,7 @@ var Channel = function(username) {
             channelId: this.id
         };
 
-        return request("/search", options)
+        return HTTP.request("/search", options)
             .then(res => res.json())
             .then(data => {
                 data.items.forEach(item => {
@@ -130,7 +125,7 @@ var Video = function(videoId) {
             fields: "items(contentDetails%2Fduration%2Csnippet(publishedAt%2Cthumbnails%2Fmedium%2Furl%2Ctitle))"
         }
 
-        return request("/videos", options)
+        return HTTP.request("/videos", options)
             .then(res => res.json())
             .then(data => {
                 data = data.items[0];
@@ -167,16 +162,6 @@ var Video = function(videoId) {
 
         return $video;
     }
-}
-
-function request(endpoint, options) {
-    options = Object.assign(DEFAULT_PARAMS, options || {});
-
-    let params = Object.keys(options)
-                       .map(key => `${key}=${options[key]}`)
-                       .join("&");
-
-    return fetch(`${API_URL}${endpoint}?${params}`);
 }
 
 let channels = new ChannelCollection(USERNAMES);
