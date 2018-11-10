@@ -39,18 +39,18 @@ export default class Video {
             window.open(`${YOUTUBE_URL}watch?v=${this.id}`)
         });
 
-        $video.innerHTML +=
-            `<img class="video-thumbnail" src="${this.thumbnailUrl}"/>` +
-            `<div class="video-title">${this.title}</div>` +
-            `<span class="video-info">` +
-                `<span class="icon-calendar fa fa-calendar"></span>` +
-                `${DateHelper.formatDate(this.publishedAt)}, ` +
-                DateHelper.formatTime(this.publishedAt) +
-            `</span>` +
-            `<span class="video-duration">` +
-                `<span class="icon-clock fa fa-clock-o"></span>` +
-                DurationHelper.format(this.duration) +
-            `</span>`;
+        $video.innerHTML =
+            `<img class="video-thumbnail" src="${this.thumbnailUrl}"/>
+             <div class="video-title">${this.title}</div>
+             <span class="video-info">
+                <span class="icon-calendar fa fa-calendar"></span>
+                ${DateHelper.formatDate(this.publishedAt)},
+                ${DateHelper.formatTime(this.publishedAt)}
+             </span>
+             <span class="video-duration">
+                <span class="icon-clock fa fa-clock-o"></span>
+                ${DurationHelper.format(this.duration)}
+             </span>`;
 
         return $video;
     };
