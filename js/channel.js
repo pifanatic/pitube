@@ -62,12 +62,12 @@ export default class Channel {
         this.$el.classList.add("channel")
 
         this.$el.innerHTML =
-            `<img class="channel-avatar" src="${this.avatarUrl}"/>` +
-            `<span class="channel-title">${this.title}</span>` +
-            `<span class="youtube-icon fa fa-youtube"` +
-                   `title="Visit ${this.username} on YouTube"` +
-                   `onclick=window.open("${YOUTUBE_URL}user/${this.username}/videos")>` +
-            `</span>`;
+            `<img class="channel-avatar" src="${this.avatarUrl}"/>
+             <span class="channel-title">${this.title}</span>
+             <span class="youtube-icon fa fa-youtube"
+                   title="Visit ${this.username} on YouTube"
+                   onclick=window.open("${YOUTUBE_URL}user/${this.username}/videos")>
+             </span>`;
 
         return this.$el;
     }
