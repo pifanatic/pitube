@@ -1,21 +1,8 @@
-import * as DateHelper from "./dateHelper.js";
-import * as HTTP       from "./http.js";
+import * as DateHelper     from "./dateHelper.js";
+import * as DurationHelper from "./durationHelper.js";
+import * as HTTP           from "./http.js";
 
 const YOUTUBE_URL = "https://www.youtube.com/";
-
-var DurationHelper = {
-    /*
-        Takes a duration string as it has been returned by Youtube API and format
-        it into better readable format: PT52M3S -> 52:03
-    */
-    format: durationString =>
-        /PT(\d*)H?(\d*)M?(\d*)S?/
-            .exec(durationString)
-            .splice(1)
-            .filter(x => x) // remove undefined values
-            .map(x => x < 10 ? `0${x}` : x) // add leading 0 if necessary
-            .join(":")
-};
 
 var ChannelCollection = function(usernames) {
     this.channels = usernames.map(username => new Channel(username));
