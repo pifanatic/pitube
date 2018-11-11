@@ -10,12 +10,14 @@ export default class ChannelCollection {
     }
 
     render() {
-        var $content = document.getElementById("content");
+        this.$el = document.createElement("div");
 
         this.channels.forEach(channel => {
-            $content.appendChild(channel.render());
+            this.$el.appendChild(channel.render());
 
             channel.renderVideos();
         });
+
+        return this.$el;
     }
 }

@@ -7,4 +7,7 @@ import      ChannelCollection from "./channelCollection.js";
 
 let channels = new ChannelCollection(USERNAMES);
 
-channels.loadChannels().then(channels.render.bind(channels));
+channels.loadChannels().then(() => {
+    let $content = document.getElementById("content");
+    $content.appendChild(channels.render());
+});
