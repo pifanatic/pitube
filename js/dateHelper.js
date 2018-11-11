@@ -7,7 +7,7 @@ export function isToday(date) {
 };
 
 export function isYesterday(date) {
-    var dateToCheck = new Date(date);
+    let dateToCheck = new Date(date);
 
     dateToCheck.setDate(dateToCheck.getDate() + 1); // add one day
 

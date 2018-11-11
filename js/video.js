@@ -32,7 +32,7 @@ export default class Video {
     };
 
     render() {
-        var $video = document.createElement("div");
+        let $video = document.createElement("div");
         $video.classList.add("video");
 
         $video.addEventListener("click", () => {

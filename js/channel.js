@@ -30,7 +30,7 @@ export default class Channel {
     }
 
     getVideos() {
-        var options = {
+        let options = {
             maxResults: 12,
             order: "date",
             type: "video",
@@ -73,7 +73,7 @@ export default class Channel {
     }
 
     renderVideos() {
-        var $videos = document.createElement("div");
+        let $videos = document.createElement("div");
         $videos.classList.add("videos");
 
         this.$el.parentNode.insertBefore($videos, this.$el.nextSibling);
