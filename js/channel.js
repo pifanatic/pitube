@@ -1,4 +1,4 @@
-import * as HTTP  from "./http.js";
+import * as HTTP  from "./lib/http.js";
 import      Video from "./video.js";
 
 const YOUTUBE_URL = "https://www.youtube.com/";

@@ -1,6 +1,6 @@
 import * as DateHelper        from "./helpers/dateHelper.js";
 import * as DurationHelper    from "./helpers/durationHelper.js";
-import * as HTTP              from "./http.js";
+import * as HTTP              from "./lib/http.js";
 import      Video             from "./video.js";
 import      Channel           from "./channel.js";
 import      ChannelCollection from "./channelCollection.js";

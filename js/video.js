@@ -1,4 +1,4 @@
-import * as HTTP           from "./http.js";
+import * as HTTP           from "./lib/http.js";
 import * as DateHelper     from "./helpers/dateHelper.js";
 import * as DurationHelper from "./helpers/durationHelper.js";
 
