@@ -1,6 +1,6 @@
 import * as HTTP           from "./http.js";
-import * as DateHelper     from "./dateHelper.js";
-import * as DurationHelper from "./durationHelper.js";
+import * as DateHelper     from "./helpers/dateHelper.js";
+import * as DurationHelper from "./helpers/durationHelper.js";
 
 const YOUTUBE_URL = "https://www.youtube.com/";
 

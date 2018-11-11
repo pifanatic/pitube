@@ -1,5 +1,5 @@
-import * as DateHelper        from "./dateHelper.js";
-import * as DurationHelper    from "./durationHelper.js";
+import * as DateHelper        from "./helpers/dateHelper.js";
+import * as DurationHelper    from "./helpers/durationHelper.js";
 import * as HTTP              from "./http.js";
 import      Video             from "./video.js";
 import      Channel           from "./channel.js";
