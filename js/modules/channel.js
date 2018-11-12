@@ -12,11 +12,7 @@ export default class Channel {
 
     load() {
         return YouTube.getChannel(this.username)
-                      .then(data => {
-                          this.id        = data.id;
-                          this.title     = data.title;
-                          this.avatarUrl = data.avatarUrl;
-                      })
+                      .then(data => Object.assign(this, data))
                       .then(this.getVideos.bind(this))
                       .then(this.loadVideos.bind(this));
     }
