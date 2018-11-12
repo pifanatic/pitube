@@ -1,5 +1,6 @@
-import * as HTTP  from "../lib/http.js";
-import      Video from "./video.js";
+import * as HTTP    from "../lib/http.js";
+import * as YouTube from "../lib/youtube.js";
+import      Video   from "./video.js";
 
 const YOUTUBE_URL = "https://www.youtube.com/";
 
@@ -10,23 +11,14 @@ export default class Channel {
     }
 
     load() {
-        let options = {
-            forUsername: this.username,
-            maxResults: 1,
-            fields: "items(id%2Csnippet(thumbnails%2Fdefault%2Furl%2Ctitle))"
-        }
-
-        return HTTP.request("/channels", options)
-            .then(res => res.json())
-            .then(data => {
-                data = data.items[0];
-
-                this.id        = data.id;
-                this.title     = data.snippet.title;
-                this.avatarUrl = data.snippet.thumbnails.default.url;
-            })
-            .then(this.getVideos.bind(this))
-            .then(this.loadVideos.bind(this));
+        return YouTube.getChannel(this.username)
+                      .then(data => {
+                          this.id        = data.id;
+                          this.title     = data.title;
+                          this.avatarUrl = data.avatarUrl;
+                      })
+                      .then(this.getVideos.bind(this))
+                      .then(this.loadVideos.bind(this));
     }
 
     getVideos() {
