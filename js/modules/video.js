@@ -32,14 +32,14 @@ export default class Video {
     };
 
     render() {
-        let $video = document.createElement("div");
-        $video.classList.add("video");
+        this.$el = document.createElement("div");
+        this.$el.classList.add("video");
 
-        $video.addEventListener("click", () => {
+        this.$el.addEventListener("click", () => {
             window.open(`${YOUTUBE_URL}watch?v=${this.id}`)
         });
 
-        $video.innerHTML =
+        this.$el.innerHTML =
             `<img class="video-thumbnail" src="${this.thumbnailUrl}"/>
              <div class="video-title">${this.title}</div>
              <span class="video-info">
@@ -52,6 +52,6 @@ export default class Video {
                 ${DurationHelper.format(this.duration)}
              </span>`;
 
-        return $video;
+        return this.$el;
     };
 }
