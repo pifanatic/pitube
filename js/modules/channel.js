@@ -1,4 +1,3 @@
-import * as HTTP    from "../lib/http.js";
 import * as YouTube from "../lib/youtube.js";
 import      Video   from "./video.js";
 
@@ -10,27 +9,10 @@ export default class Channel {
 
     load() {
         return YouTube.getChannel(this.username)
-                      .then(data => Object.assign(this, data))
-                      .then(this.getVideos.bind(this))
+                      .then(data   =>  Object.assign(this, data))
+                      .then(()     => YouTube.searchVideos(this.id))
+                      .then(videos =>  Object.assign(this.videos, videos))
                       .then(this.loadVideos.bind(this));
-    }
-
-    getVideos() {
-        let options = {
-            maxResults: 12,
-            order: "date",
-            type: "video",
-            fields: "items(id%2FvideoId)",
-            channelId: this.id
-        };
-
-        return HTTP.request("/search", options)
-            .then(res => res.json())
-            .then(data => {
-                data.items.forEach(item => {
-                    this.videos.push(new Video(item.id.videoId));
-                });
-            });
     }
 
     loadVideos() {
