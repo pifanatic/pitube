@@ -9,10 +9,14 @@ export default class Channel {
 
     load() {
         return YouTube.getChannel(this.username)
-                      .then(data   =>  Object.assign(this, data))
-                      .then(()     => YouTube.searchVideos(this.id))
-                      .then(videos =>  Object.assign(this.videos, videos))
-                      .then(this.loadVideos.bind(this));
+                      .then(data => {
+                          Object.assign(this, data);
+                          return YouTube.searchVideos(this.id);
+                      })
+                      .then(videos => {
+                          Object.assign(this.videos, videos);
+                          return this.loadVideos();
+                      });
     }
 
     loadVideos() {
