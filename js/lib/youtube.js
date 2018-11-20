@@ -1,4 +1,5 @@
-import * as HTTP from "./http.js";
+import * as HTTP  from "./http.js";
+import      Video from "../modules/video.js";
 
 export const URL = "https://www.youtube.com/";
 
@@ -71,4 +72,25 @@ export function getVideo(videoId) {
                    };
                }
     );
+}
+
+/**
+    Search for for videos by a specific YouTube channel
+
+    @param channelId the id of a YouTube channel
+
+    @returns an array with the latest twelve videos by that channel
+*/
+export function searchVideos(channelId) {
+    let options = {
+        maxResults: 12,
+        order: "date",
+        type: "video",
+        fields: "items(id%2FvideoId)",
+        channelId: channelId
+    };
+
+    return HTTP.request("/search", options)
+               .then(res => res.json())
+               .then(data => data.items.map(item => new Video(item.id.videoId)));
 }
