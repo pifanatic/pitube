@@ -1,4 +1,4 @@
-import * as HTTP           from "../lib/http.js";
+import * as YouTube        from "../lib/youtube.js";
 import * as DateHelper     from "../helpers/dateHelper.js";
 import * as DurationHelper from "../helpers/durationHelper.js";
 
@@ -10,25 +10,8 @@ export default class Video {
     };
 
     load() {
-        let options = {
-            id: this.id,
-            maxResults: 1,
-            part: "snippet,contentDetails",
-            fields: "items(contentDetails%2Fduration%2Csnippet(publishedAt%2Cthumbnails%2Fmedium%2Furl%2Ctitle))"
-        };
-
-        return HTTP.request("/videos", options)
-            .then(res => res.json())
-            .then(data => {
-                data = data.items[0];
-
-                this.publishedAt  = new Date(data.snippet.publishedAt);
-                this.thumbnailUrl = data.snippet.thumbnails.medium.url;
-                this.duration     = data.contentDetails.duration;
-                this.title        = data.snippet.title;
-
-                return this;
-        });
+        return YouTube.getVideo(this.id)
+                      .then(data => Object.assign(this, data));
     };
 
     render() {

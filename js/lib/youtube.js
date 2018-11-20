@@ -33,3 +33,40 @@ export function getChannel(username) {
                }
     );
 }
+
+/**
+    Returns information about a YouTube video.
+    This information contains the following fields:
+
+    - title
+    - publishedAt
+    - duration
+    - thumbnailUrl
+
+    @param videoId The id of a YouTube video
+
+    @returns a Promise that resolves with an object containing information about
+             a YouTube video
+*/
+export function getVideo(videoId) {
+    let options = {
+        id: videoId,
+        maxResults: 1,
+        part: "snippet,contentDetails",
+        fields: "items(contentDetails%2Fduration%2Csnippet(publishedAt%2Cthumbnails%2Fmedium%2Furl%2Ctitle))"
+    };
+
+    return HTTP.request("/videos", options)
+               .then(res => res.json())
+               .then(data => {
+                   data = data.items[0];
+
+                   return {
+                       title:        data.snippet.title,
+                       publishedAt:  new Date(data.snippet.publishedAt),
+                       duration:     data.contentDetails.duration,
+                       thumbnailUrl: data.snippet.thumbnails.medium.url
+                   };
+               }
+    );
+}
