@@ -1,5 +1,7 @@
 import * as HTTP from "./http.js";
 
+export const URL = "https://www.youtube.com/";
+
 /**
     Returns information about a YouTube channel.
     This information contains the following fields:

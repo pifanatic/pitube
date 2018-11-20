@@ -2,8 +2,6 @@ import * as HTTP    from "../lib/http.js";
 import * as YouTube from "../lib/youtube.js";
 import      Video   from "./video.js";
 
-const YOUTUBE_URL = "https://www.youtube.com/";
-
 export default class Channel {
     constructor(username) {
         this.username = username;
@@ -54,7 +52,7 @@ export default class Channel {
              <span class="channel-title">${this.title}</span>
              <span class="youtube-icon fa fa-youtube"
                    title="Visit ${this.username} on YouTube"
-                   onclick=window.open("${YOUTUBE_URL}user/${this.username}/videos")>
+                   onclick=window.open("${YouTube.URL}user/${this.username}/videos")>
              </span>`;
 
         return this.$el;

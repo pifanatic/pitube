@@ -2,8 +2,6 @@ import * as YouTube        from "../lib/youtube.js";
 import * as DateHelper     from "../helpers/dateHelper.js";
 import * as DurationHelper from "../helpers/durationHelper.js";
 
-const YOUTUBE_URL = "https://www.youtube.com/";
-
 export default class Video {
     constructor(videoId) {
         this.id = videoId;
@@ -19,7 +17,7 @@ export default class Video {
         this.$el.classList.add("video");
 
         this.$el.addEventListener("click", () => {
-            window.open(`${YOUTUBE_URL}watch?v=${this.id}`)
+            window.open(`${YouTube.URL}watch?v=${this.id}`)
         });
 
         this.$el.innerHTML =
