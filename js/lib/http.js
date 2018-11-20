@@ -9,7 +9,7 @@ export function request(endpoint, options) {
     options = Object.assign(DEFAULT_PARAMS, options || {});
 
     let params = Object.keys(options)
-                       .map(key => `${key}=${options[key]}`)
+                       .map(key => `${key}=${encodeURIComponent(options[key])}`)
                        .join("&");
 
     return fetch(`${API_URL}${endpoint}?${params}`);

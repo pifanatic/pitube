@@ -20,7 +20,7 @@ export function getChannel(username) {
     let options = {
         forUsername: username,
         maxResults: 1,
-        fields: "items(id%2Csnippet(thumbnails%2Fdefault%2Furl%2Ctitle))"
+        fields: "items(id,snippet(thumbnails/default/url,title))"
     };
 
     return HTTP.request("/channels", options)
@@ -56,7 +56,7 @@ export function getVideo(videoId) {
         id: videoId,
         maxResults: 1,
         part: "snippet,contentDetails",
-        fields: "items(contentDetails%2Fduration%2Csnippet(publishedAt%2Cthumbnails%2Fmedium%2Furl%2Ctitle))"
+        fields: "items(contentDetails/duration,snippet(publishedAt,thumbnails/medium/url,title))"
     };
 
     return HTTP.request("/videos", options)
@@ -86,7 +86,7 @@ export function searchVideos(channelId) {
         maxResults: 12,
         order: "date",
         type: "video",
-        fields: "items(id%2FvideoId)",
+        fields: "items(id/videoId)",
         channelId: channelId
     };
 
