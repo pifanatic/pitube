@@ -1,6 +1,26 @@
 body {
     background-color: #ddd;
     font-family: "Roboto";
+    margin: 0px;
+}
+
+.header {
+    align-items: center;
+    background-color: #333;
+    color: #fff;
+    display: flex;
+    font-size: 40px;
+    height: 50px;
+    justify-content: center;
+    margin-bottom: 50px;
+    position: sticky;
+    top: 0px;
+    z-index: 1;
+}
+
+.header > .title-icon {
+    color: #f00;
+    margin-right: 10px;
 }
 
 .channel {
