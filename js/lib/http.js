@@ -1,5 +1,3 @@
-const API_URL = "https://www.googleapis.com/youtube/v3";
-
 const DEFAULT_PARAMS = {
     part: "snippet",
     key: API_KEY,
@@ -12,5 +10,5 @@ export function get(endpoint, options) {
                        .map(key => `${key}=${encodeURIComponent(options[key])}`)
                        .join("&");
 
-    return fetch(`${API_URL}${endpoint}?${params}`);
+    return fetch(`${endpoint}?${params}`);
 };

@@ -3,6 +3,8 @@ import      Video from "../modules/video.js";
 
 export const URL = "https://www.youtube.com/";
 
+const API_URL = "https://www.googleapis.com/youtube/v3";
+
 /**
     Returns information about a YouTube channel.
     This information contains the following fields:
@@ -23,7 +25,7 @@ export function getChannel(username) {
         fields: "items(id,snippet(thumbnails/default/url,title))"
     };
 
-    return HTTP.get("/channels", options)
+    return HTTP.get(`${API_URL}/channels`, options)
                .then(res => res.json())
                .then(data => {
                    data = data.items[0];
@@ -59,7 +61,7 @@ export function getVideo(videoId) {
         fields: "items(contentDetails/duration,snippet(publishedAt,thumbnails/medium/url,title))"
     };
 
-    return HTTP.get("/videos", options)
+    return HTTP.get(`${API_URL}/videos`, options)
                .then(res => res.json())
                .then(data => {
                    data = data.items[0];
@@ -90,7 +92,7 @@ export function searchVideos(channelId) {
         channelId: channelId
     };
 
-    return HTTP.get("/search", options)
+    return HTTP.get(`${API_URL}/search`, options)
                .then(res => res.json())
                .then(data => data.items.map(item => new Video(item.id.videoId)));
 }
