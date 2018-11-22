@@ -1,4 +1,4 @@
-import      ChannelCollection from "./modules/channelCollection.js";
+import ChannelCollection from "./modules/channelCollection.js";
 
 let channels = new ChannelCollection(USERNAMES);
 
