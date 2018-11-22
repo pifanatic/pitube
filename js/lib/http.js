@@ -5,7 +5,7 @@ const DEFAULT_PARAMS = {
     key: API_KEY,
 };
 
-export function request(endpoint, options) {
+export function get(endpoint, options) {
     options = Object.assign(DEFAULT_PARAMS, options || {});
 
     let params = Object.keys(options)

@@ -23,7 +23,7 @@ export function getChannel(username) {
         fields: "items(id,snippet(thumbnails/default/url,title))"
     };
 
-    return HTTP.request("/channels", options)
+    return HTTP.get("/channels", options)
                .then(res => res.json())
                .then(data => {
                    data = data.items[0];
@@ -59,7 +59,7 @@ export function getVideo(videoId) {
         fields: "items(contentDetails/duration,snippet(publishedAt,thumbnails/medium/url,title))"
     };
 
-    return HTTP.request("/videos", options)
+    return HTTP.get("/videos", options)
                .then(res => res.json())
                .then(data => {
                    data = data.items[0];
@@ -90,7 +90,7 @@ export function searchVideos(channelId) {
         channelId: channelId
     };
 
-    return HTTP.request("/search", options)
+    return HTTP.get("/search", options)
                .then(res => res.json())
                .then(data => data.items.map(item => new Video(item.id.videoId)));
 }
