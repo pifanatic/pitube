@@ -3,12 +3,12 @@ const DEFAULT_PARAMS = {
     key: API_KEY,
 };
 
-export function get(endpoint, options) {
+export function get(url, options) {
     options = Object.assign(DEFAULT_PARAMS, options || {});
 
     let params = Object.keys(options)
                        .map(key => `${key}=${encodeURIComponent(options[key])}`)
                        .join("&");
 
-    return fetch(`${endpoint}?${params}`);
+    return fetch(`${url}?${params}`);
 };
