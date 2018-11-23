@@ -56,8 +56,25 @@ body {
     vertical-align: middle;
 }
 
+.channel > .icon-arrow {
+    color: #999;
+    cursor: pointer;
+}
+
+.channel.hidden > .icon-arrow {
+    transform: rotate(270deg);
+}
+
+.channel > .icon-arrow:hover {
+    color: #666;
+}
+
 .youtube-icon:hover {
     color: red;
+}
+
+.channel.hidden + .videos {
+    display: none;
 }
 
 .videos {

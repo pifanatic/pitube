@@ -40,6 +40,10 @@ export default class Channel {
              <span class="youtube-icon fa fa-youtube"
                    title="Visit ${this.username} on YouTube"
                    onclick=window.open("${YouTube.URL}user/${this.username}/videos")>
+             </span>
+             <span class="icon-arrow fa fa-chevron-down"
+                   onclick="getElementById('${this.username}').classList.toggle('hidden')"
+                   title="Toggle visibility">
              </span>`;
 
         return this.$el;
