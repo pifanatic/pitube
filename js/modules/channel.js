@@ -32,6 +32,7 @@ export default class Channel {
     render() {
         this.$el = document.createElement("div");
         this.$el.classList.add("channel");
+        this.$el.setAttribute("id", this.username);
 
         this.$el.innerHTML =
             `<img class="channel-avatar" src="${this.avatarUrl}"/>
