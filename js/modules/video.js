@@ -20,15 +20,27 @@ export default class Video {
         return YouTube.getVideo(this.id)
                       .then(data => {
                           Object.assign(this, data);
-                          this._hasLoaded = true;
-                          this.render();
+                          this.loadThumbnail();
                       });
     };
+
+    loadThumbnail() {
+        let img = new Image();
+        img.src = this.thumbnailUrl;
+        img.classList.add("video-thumbnail");
+
+        img.onload = function() {
+            this._hasLoaded = true;
+            this.render();
+        }.bind(this);
+
+        this.img = img;
+    }
 
     render() {
         if (this._hasLoaded) {
             this.$el.innerHTML =
-                `<img class="video-thumbnail" src="${this.thumbnailUrl}"/>
+                `${this.img.outerHTML}
                  <div class="video-title">${this.title}</div>
                  <span class="video-info">
                     <span class="icon-calendar fa fa-calendar"></span>
