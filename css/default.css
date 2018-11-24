@@ -77,6 +77,10 @@ body {
     display: none;
 }
 
+.channel.hidden {
+    margin-bottom: 20px;
+}
+
 .videos {
     display: flex;
     flex-wrap: wrap;
