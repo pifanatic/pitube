@@ -5,33 +5,46 @@ import * as DurationHelper from "../helpers/durationHelper.js";
 export default class Video {
     constructor(videoId) {
         this.id = videoId;
-    };
 
-    load() {
-        return YouTube.getVideo(this.id)
-                      .then(data => Object.assign(this, data));
-    };
+        this._hasLoaded = false;
 
-    render() {
         this.$el = document.createElement("div");
         this.$el.classList.add("video");
 
         this.$el.addEventListener("click", () => {
             window.open(`${YouTube.URL}watch?v=${this.id}`)
         });
+    };
 
-        this.$el.innerHTML =
-            `<img class="video-thumbnail" src="${this.thumbnailUrl}"/>
-             <div class="video-title">${this.title}</div>
-             <span class="video-info">
-                <span class="icon-calendar fa fa-calendar"></span>
-                ${DateHelper.formatDate(this.publishedAt)},
-                ${DateHelper.formatTime(this.publishedAt)}
-             </span>
-             <span class="video-duration">
-                <span class="icon-clock fa fa-clock-o"></span>
-                ${DurationHelper.format(this.duration)}
-             </span>`;
+    load() {
+        return YouTube.getVideo(this.id)
+                      .then(data => {
+                          Object.assign(this, data);
+                          this._hasLoaded = true;
+                          this.render();
+                      });
+    };
+
+    render() {
+        if (this._hasLoaded) {
+            this.$el.innerHTML =
+                `<img class="video-thumbnail" src="${this.thumbnailUrl}"/>
+                 <div class="video-title">${this.title}</div>
+                 <span class="video-info">
+                    <span class="icon-calendar fa fa-calendar"></span>
+                    ${DateHelper.formatDate(this.publishedAt)},
+                    ${DateHelper.formatTime(this.publishedAt)}
+                 </span>
+                 <span class="video-duration">
+                    <span class="icon-clock fa fa-clock-o"></span>
+                    ${DurationHelper.format(this.duration)}
+                 </span>`;
+        } else {
+            this.$el.innerHTML =
+                `<div class="loading-wrapper">
+                    <span class="fa fa-spinner fa-spin"></span>
+                 </div>`;
+        }
 
         return this.$el;
     };

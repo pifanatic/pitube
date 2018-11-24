@@ -23,7 +23,7 @@ body {
     margin-right: 10px;
 }
 
-.channel {
+.channel-header {
     background-color: white;
     border-radius: 5px;
     box-shadow: 5px 5px 5px #aaa;
@@ -48,7 +48,7 @@ body {
     margin-left: 8px;
 }
 
-.channel > .youtube-icon {
+.channel-header > .youtube-icon {
     color: #999;
     cursor: pointer;
     font-size: 32px;
@@ -56,16 +56,16 @@ body {
     vertical-align: middle;
 }
 
-.channel > .icon-arrow {
+.channel-header > .icon-arrow {
     color: #999;
     cursor: pointer;
 }
 
-.channel.hidden > .icon-arrow {
+.channel.hidden .icon-arrow {
     transform: rotate(270deg);
 }
 
-.channel > .icon-arrow:hover {
+.channel-header > .icon-arrow:hover {
     color: #666;
 }
 
@@ -73,7 +73,7 @@ body {
     color: red;
 }
 
-.channel.hidden + .videos {
+.channel.hidden > .videos {
     display: none;
 }
 
@@ -85,6 +85,15 @@ body {
 
     margin-bottom: 30px;
     margin-top: 20px;
+}
+
+.loading-wrapper {
+    align-items: center;
+    color: #999;
+    display: flex;
+    font-size: 35px;
+    height: 160px;
+    justify-content: center;
 }
 
 .video {

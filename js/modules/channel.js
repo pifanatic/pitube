@@ -15,7 +15,7 @@ export default class Channel {
                       })
                       .then(videos => {
                           Object.assign(this.videos, videos);
-                          return this.loadVideos();
+                          this.loadVideos();
                       });
     }
 
@@ -35,16 +35,18 @@ export default class Channel {
         this.$el.setAttribute("id", this.username);
 
         this.$el.innerHTML =
-            `<img class="channel-avatar" src="${this.avatarUrl}"/>
-             <span class="channel-title">${this.title}</span>
-             <span class="youtube-icon fa fa-youtube"
-                   title="Visit ${this.username} on YouTube"
-                   onclick=window.open("${YouTube.URL}user/${this.username}/videos")>
-             </span>
-             <span class="icon-arrow fa fa-chevron-down"
-                   onclick="getElementById('${this.username}').classList.toggle('hidden')"
-                   title="Toggle visibility">
-             </span>`;
+            `<div class="channel-header">
+                <img class="channel-avatar" src="${this.avatarUrl}"/>
+                <span class="channel-title">${this.title}</span>
+                <span class="youtube-icon fa fa-youtube"
+                    title="Visit ${this.username} on YouTube"
+                    onclick=window.open("${YouTube.URL}user/${this.username}/videos")>
+                </span>
+                <span class="icon-arrow fa fa-chevron-down"
+                    onclick="getElementById('${this.username}').classList.toggle('hidden')"
+                    title="Toggle visibility">
+                </span>
+             </div>`;
 
         return this.$el;
     }
@@ -53,7 +55,7 @@ export default class Channel {
         let $videos = document.createElement("div");
         $videos.classList.add("videos");
 
-        this.$el.parentNode.insertBefore($videos, this.$el.nextSibling);
+        this.$el.appendChild($videos);
 
         this.videos.forEach(video => {
             $videos.appendChild(video.render());
