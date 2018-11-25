@@ -121,6 +121,10 @@ body {
     background-color: yellow;
 }
 
+.video.hidden {
+    display: none;
+}
+
 .video-title {
     font-weight: 800;
     font-size: 14px;
