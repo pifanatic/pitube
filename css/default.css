@@ -23,6 +23,23 @@ body {
     margin-right: 10px;
 }
 
+.header > button {
+    background-color: #ccc;
+    border: 1px solid black;
+    cursor: pointer;
+    font-family: 'Roboto';
+    font-size: 16px;
+    font-weight: bold;
+    margin-right: 20px;
+    padding: 6px;
+    position: absolute;
+    right: 10px;
+}
+
+.header > button:hover {
+    background-color: white;
+}
+
 .channel-header {
     background-color: white;
     border-radius: 5px;
