@@ -14,7 +14,7 @@ export default class Video {
         this.$el.addEventListener("click", () => {
             window.open(`${YouTube.URL}watch?v=${this.id}`)
         });
-    };
+    }
 
     load() {
         return YouTube.getVideo(this.id)
@@ -22,7 +22,7 @@ export default class Video {
                           Object.assign(this, data);
                           this.loadThumbnail();
                       });
-    };
+    }
 
     loadThumbnail() {
         let img = new Image();
