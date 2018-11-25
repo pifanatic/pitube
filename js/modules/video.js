@@ -39,6 +39,8 @@ export default class Video {
 
     render() {
         if (this._hasLoaded) {
+            this.$el.classList.toggle("today", DateHelper.isToday(this.publishedAt));
+
             this.$el.innerHTML =
                 `${this.img.outerHTML}
                  <div class="video-title">${this.title}</div>

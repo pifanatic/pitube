@@ -117,6 +117,10 @@ body {
     box-shadow: 0px 0px 8px 3px #666;
 }
 
+.video.today {
+    background-color: yellow;
+}
+
 .video-title {
     font-weight: 800;
     font-size: 14px;
