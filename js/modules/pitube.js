@@ -1,4 +1,4 @@
-import Channel from "./modules/channel.js";
+import Channel from "./channel.js";
 
 export default class PiTube {
     constructor(usernames) {
