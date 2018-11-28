@@ -1,8 +1,23 @@
-import ChannelCollection from "./modules/channelCollection.js";
+import Channel from "./modules/channel.js";
 
-let channels = new ChannelCollection(USERNAMES);
+export default class PiTube {
+    constructor(usernames) {
+        this.channels = usernames.map(username => new Channel(username));
+    }
 
-channels.loadChannels().then(() => {
-    let $content = document.getElementById("content");
-    $content.appendChild(channels.render());
-});
+    load() {
+        return Promise.all(this.channels.map(channel => channel.load()));
+    }
+
+    render() {
+        this.$el = document.createElement("div");
+
+        this.channels.forEach(channel => {
+            this.$el.appendChild(channel.render());
+
+            channel.renderVideos();
+        });
+
+        return this.$el;
+    }
+}

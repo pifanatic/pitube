@@ -17,12 +17,19 @@
         <div id="content"></div>
         <script>
             const API_KEY = "";
-
-            const USERNAMES = [
-                "Youtube"
-            ];
         </script>
-        <script src="js/pitube.js" type="module"></script>
+        <script type="module">
+            import PiTube from "./js/pitube.js";
+
+            let piTube = new PiTube([
+                "YouTube"
+            ]);
+
+            piTube.load().then(() => {
+                let $content = document.getElementById("content");
+                $content.appendChild(piTube.render());
+            });
+        </script>
         <script>
             let filterToday = function() {
                 let videoEls = document.getElementsByClassName("video");
