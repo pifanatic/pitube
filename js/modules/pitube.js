@@ -1,7 +1,10 @@
-import Channel from "./channel.js";
+import      Channel from "./channel.js";
+import * as Config  from "../config.js";
 
 export default class PiTube {
-    constructor(usernames) {
+    constructor() {
+        let usernames = Config.USERNAMES;
+
         this.channels = usernames.map(username => new Channel(username));
     }
 
