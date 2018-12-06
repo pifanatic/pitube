@@ -1,5 +1,6 @@
-import * as HTTP  from "./http.js";
-import      Video from "../modules/video.js";
+import * as HTTP   from "./http.js";
+import      Video  from "../modules/video.js";
+import * as Config from "../config.js";
 
 export const URL = "https://www.youtube.com/";
 
@@ -7,7 +8,7 @@ const API_URL = "https://www.googleapis.com/youtube/v3";
 
 const DEFAULT_PARAMS = {
     part: "snippet",
-    key: API_KEY,
+    key: Config.API_KEY,
 };
 
 /**
