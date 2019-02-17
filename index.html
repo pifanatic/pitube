@@ -11,21 +11,9 @@
         <div class="header">
             <span class="title-icon fa fa-youtube-play"></span>
             <span class="title">PiTube</span>
-            <button onclick="filterToday()">Filter today</button>
         </div>
 
         <div id="content"></div>
         <script type="module" src="js/main.js" crossorigin="use-credentials"></script>
-        <script>
-            let filterToday = function() {
-                let videoEls = document.getElementsByClassName("video");
-
-                for(let i = 0; i < videoEls.length; i++) {
-                    let item = videoEls.item(i);
-
-                    item.hidden = !item.classList.contains("today") && !item.hidden;
-                }
-            }
-        </script>
     </body>
 </html>

@@ -12,7 +12,23 @@ export default class PiTube {
         return Promise.all(this.channels.map(channel => channel.load()));
     }
 
+    filterToday() {
+        this.channels.forEach(channel => channel.filterToday());
+    }
+
+    renderFilterButton() {
+        let $button = document.createElement("button");
+
+        $button.classList.add("filter");
+        $button.innerText = "Filter today";
+        $button.addEventListener("click", () => this.filterToday());
+
+        document.getElementsByClassName("header")[0].appendChild($button);
+    }
+
     render() {
+        this.renderFilterButton();
+
         this.$el = document.createElement("div");
 
         this.channels.forEach(channel => {

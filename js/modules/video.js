@@ -38,6 +38,12 @@ export default class Video {
         this.img = img;
     }
 
+    toggleToday() {
+        this.hidden = !this.today && !this.hidden;
+
+        this.$el.classList.toggle("hidden", this.hidden);
+    }
+
     render() {
         if (this._hasLoaded) {
             this.$el.classList.toggle("today", this.today);

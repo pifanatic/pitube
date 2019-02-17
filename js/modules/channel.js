@@ -29,6 +29,10 @@ export default class Channel {
         return Promise.all(promises);
     }
 
+    filterToday() {
+        this.videos.forEach(video => video.toggleToday());
+    }
+
     render() {
         this.$el = document.createElement("div");
         this.$el.classList.add("channel");
