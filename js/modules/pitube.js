@@ -23,7 +23,7 @@ export default class PiTube {
         $button.innerText = "Filter today";
         $button.addEventListener("click", () => this.filterToday());
 
-        document.getElementsByClassName("header")[0].appendChild($button);
+        document.getElementById("header").appendChild($button);
     }
 
     render() {
