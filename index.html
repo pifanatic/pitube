@@ -15,16 +15,7 @@
         </div>
 
         <div id="content"></div>
-        <script type="module" crossorigin="use-credentials">
-            import PiTube from "./js/modules/pitube.js";
-
-            let piTube = new PiTube();
-
-            piTube.load().then(() => {
-                let $content = document.getElementById("content");
-                $content.appendChild(piTube.render());
-            });
-        </script>
+        <script type="module" src="js/main.js" crossorigin="use-credentials"></script>
         <script>
             let filterToday = function() {
                 let videoEls = document.getElementsByClassName("video");
