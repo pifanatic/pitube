@@ -16,18 +16,18 @@ export default class PiTube {
         this.channels.forEach(channel => channel.filterToday());
     }
 
-    renderFilterButton() {
-        let $button = document.createElement("button");
+    renderFilterIcon() {
+        let $filterIcon = document.createElement("span");
 
-        $button.classList.add("filter");
-        $button.innerText = "Filter today";
-        $button.addEventListener("click", () => this.filterToday());
+        $filterIcon.classList.add("fa", "fa-calendar", "filter");
+        $filterIcon.setAttribute("title", "Show only today's videos");
+        $filterIcon.addEventListener("click", () => this.filterToday());
 
-        document.getElementById("header").appendChild($button);
+        document.getElementById("header").appendChild($filterIcon);
     }
 
     render() {
-        this.renderFilterButton();
+        this.renderFilterIcon();
 
         this.$el = document.createElement("div");
 
