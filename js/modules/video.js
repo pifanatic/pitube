@@ -20,6 +20,7 @@ export default class Video {
         return YouTube.getVideo(this.id)
                       .then(data => {
                           Object.assign(this, data);
+                          this.today = DateHelper.isToday(this.publishedAt);
                           this.loadThumbnail();
                       });
     }
@@ -39,7 +40,7 @@ export default class Video {
 
     render() {
         if (this._hasLoaded) {
-            this.$el.classList.toggle("today", DateHelper.isToday(this.publishedAt));
+            this.$el.classList.toggle("today", this.today);
 
             this.$el.innerHTML =
                 `${this.img.outerHTML}
