@@ -47,7 +47,7 @@ export default class Channel {
                     onclick=window.open("${YouTube.URL}user/${this.username}/videos")>
                 </span>
                 <span class="icon-arrow fa fa-chevron-down"
-                    onclick="getElementById('${this.username}').classList.toggle('hidden')"
+                    onclick="getElementById('${this.username}').classList.toggle('collapsed')"
                     title="Toggle visibility">
                 </span>
              </div>`;
