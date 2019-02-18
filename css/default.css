@@ -34,6 +34,10 @@ body {
     color: red;
 }
 
+.channel.hidden {
+    display: none;
+}
+
 .channel-header {
     background-color: white;
     border-radius: 5px;

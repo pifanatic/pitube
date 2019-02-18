@@ -5,6 +5,7 @@ export default class Channel {
     constructor(username) {
         this.username = username;
         this.videos = [];
+        this.hidden = false;
     }
 
     load() {
@@ -29,8 +30,26 @@ export default class Channel {
         return Promise.all(promises);
     }
 
+    todayCount() {
+        let count = 0;
+
+        this.videos.forEach(video => {
+            if (video.today) {
+                count++;
+            }
+        });
+
+        return count;
+    }
+
     filterToday() {
+        this.toggleHidden(false);
         this.videos.forEach(video => video.toggleToday());
+    }
+
+    toggleHidden() {
+        this.hidden = this.todayCount() === 0 && !this.hidden;
+        this.$el.classList.toggle("hidden", this.hidden);
     }
 
     render() {
