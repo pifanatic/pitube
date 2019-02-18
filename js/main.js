@@ -1,8 +1,9 @@
 import PiTube from "./modules/pitube.js";
 
-let piTube = new PiTube();
+let piTube = new PiTube({
+    el: "#content"
+});
 
 piTube.load().then(() => {
-    let $content = document.getElementById("content");
-    $content.appendChild(piTube.render());
+    piTube.render();
 });
