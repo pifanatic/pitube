@@ -109,3 +109,14 @@ export function searchVideos(channelId) {
                .then(res => res.json())
                .then(data => data.items.map(item => new Video(item.id.videoId)));
 }
+
+/**
+    Return the URL to the videos section of a YouTube channel
+
+    @param username The username of the channel
+
+    @returns the url to the channel's video section
+*/
+export function getChannelUrl(username) {
+    return `${URL}user/${username}/videos`;
+}
