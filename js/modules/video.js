@@ -12,7 +12,7 @@ export default class Video {
         this.$el.classList.add("video");
 
         this.$el.addEventListener("click", () => {
-            window.open(`${YouTube.URL}watch?v=${this.id}`)
+            window.open(YouTube.getWatchUrl(this.id));
         });
     }
 

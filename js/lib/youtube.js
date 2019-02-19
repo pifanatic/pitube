@@ -120,3 +120,14 @@ export function searchVideos(channelId) {
 export function getChannelUrl(username) {
     return `${URL}user/${username}/videos`;
 }
+
+/**
+    Return the URL of a video
+
+    @param videoId The id of the video
+
+    @return the watch URL of the video
+*/
+export function getWatchUrl(videoId) {
+    return `${URL}watch?v=${videoId}`;
+}
