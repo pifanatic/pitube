@@ -4,6 +4,8 @@ let piTube = new PiTube({
     el: "#content"
 });
 
+piTube.render();
+
 piTube.load().then(() => {
     piTube.render();
 });

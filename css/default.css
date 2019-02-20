@@ -4,6 +4,18 @@ body {
     margin: 0px;
 }
 
+.loading-wrapper {
+    align-items: center;
+    color: #999;
+    display: flex;
+    justify-content: center;
+}
+
+.pitube > .loading-wrapper {
+    font-size: 80px;
+    height: 100vh;
+}
+
 .header {
     align-items: center;
     background-color: #333;
@@ -110,15 +122,6 @@ body {
     margin-top: 20px;
 }
 
-.loading-wrapper {
-    align-items: center;
-    color: #999;
-    display: flex;
-    font-size: 35px;
-    height: 160px;
-    justify-content: center;
-}
-
 .video {
     position: relative;
     background-color: white;
@@ -154,6 +157,11 @@ body {
 
 .video-thumbnail {
     width: 100%;
+}
+
+.video .loading-wrapper {
+    font-size: 35px;
+    height: 160px;
 }
 
 .video-info, .video-duration {

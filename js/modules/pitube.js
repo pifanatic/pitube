@@ -9,12 +9,17 @@ export default class PiTube {
         this.$el.classList.add("pitube");
         $container.appendChild(this.$el);
 
+        this._hasLoaded = false;
+
         let usernames = Config.USERNAMES;
         this.channels = usernames.map(username => new Channel(username));
     }
 
     load() {
-        return Promise.all(this.channels.map(channel => channel.load()));
+        return Promise.all(this.channels.map(channel => channel.load()))
+                      .then(() => {
+                          this._hasLoaded = true;
+                      });
     }
 
     filterToday() {
@@ -32,13 +37,23 @@ export default class PiTube {
     }
 
     render() {
-        this.renderFilterIcon();
+        this.$el.innerHTML = "";
 
-        this.channels.forEach(channel => {
-            this.$el.appendChild(channel.render());
+        if (this._hasLoaded) {
+            this.renderFilterIcon();
 
-            channel.renderVideos();
-        });
+            this.channels.forEach(channel => {
+                this.$el.appendChild(channel.render());
+
+                channel.renderVideos();
+            });
+        } else {
+            this.$el.innerHTML =
+                `<div class="loading-wrapper">
+                    <span class="fa fa-spinner fa-spin"></span>
+                 </div>
+                `
+        }
 
         return this.$el;
     }
