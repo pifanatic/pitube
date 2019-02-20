@@ -3,7 +3,11 @@ import * as Config  from "../config.js";
 
 export default class PiTube {
     constructor(options) {
-        this.$el = document.querySelector(options.el);
+        let $container = document.querySelector(options.el);
+
+        this.$el = document.createElement("div");
+        this.$el.classList.add("pitube");
+        $container.appendChild(this.$el);
 
         let usernames = Config.USERNAMES;
         this.channels = usernames.map(username => new Channel(username));
