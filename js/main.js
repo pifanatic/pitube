@@ -2,8 +2,6 @@ import PiTube from "./modules/pitube.js";
 
 let piTube = new PiTube({
     el: "#content"
-});
-
-piTube.render();
+}).render();
 
 piTube.load();

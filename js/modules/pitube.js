@@ -56,6 +56,6 @@ export default class PiTube {
                 `
         }
 
-        return this.$el;
+        return this;
     }
 }
