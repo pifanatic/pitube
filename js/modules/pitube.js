@@ -19,6 +19,7 @@ export default class PiTube {
         return Promise.all(this.channels.map(channel => channel.load()))
                       .then(() => {
                           this._hasLoaded = true;
+                          this.render();
                       });
     }
 

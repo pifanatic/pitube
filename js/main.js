@@ -6,6 +6,4 @@ let piTube = new PiTube({
 
 piTube.render();
 
-piTube.load().then(() => {
-    piTube.render();
-});
+piTube.load();
