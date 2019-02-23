@@ -15,7 +15,7 @@ const DEFAULT_PARAMS = {
     Middleware method to extend request with the default options
 */
 function get(url, options) {
-    return HTTP.get(url, Object.assign(DEFAULT_PARAMS, options));
+    return HTTP.get(url, Object.assign({}, DEFAULT_PARAMS, options));
 }
 
 /**
