@@ -43,11 +43,16 @@ export default class PiTube {
         if (this._hasLoaded) {
             this.renderFilterIcon();
 
+            let $channelsEl = document.createElement("div");
+            $channelsEl.classList.add("channels");
+
             this.channels.forEach(channel => {
-                this.$el.appendChild(channel.render());
+                $channelsEl.appendChild(channel.render());
 
                 channel.renderVideos();
             });
+
+            this.$el.appendChild($channelsEl);
         } else {
             this.$el.innerHTML =
                 `<div class="loading-wrapper">

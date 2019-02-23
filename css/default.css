@@ -16,6 +16,10 @@ body {
     height: 100vh;
 }
 
+.channels {
+    margin-top: 80px;
+}
+
 .header {
     align-items: center;
     background-color: #333;
@@ -44,10 +48,6 @@ body {
 
 .header > .filter:hover {
     color: red;
-}
-
-.channel:first-child {
-    margin-top: 80px;
 }
 
 .channel.hidden {
