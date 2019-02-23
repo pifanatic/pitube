@@ -1,6 +1,6 @@
 /*
-Takes a duration string as it has been returned by Youtube API and format
-it into better readable format: PT52M3S -> 52:03
+    Takes a duration string as it has been returned by Youtube API and format
+    it into better readable format: PT52M3S -> 52:03
 */
 export function format(durationString) {
     let result  = "",
