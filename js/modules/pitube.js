@@ -38,7 +38,12 @@ export default class PiTube {
     }
 
     render() {
-        this.$el.innerHTML = "";
+        this.$el.innerHTML = `
+            <div id="header" class="header">
+                <span class="title-icon fa fa-youtube-play"></span>
+                <span class="title">PiTube</span>
+            </div>
+        `;
 
         if (this._hasLoaded) {
             this.renderFilterIcon();
@@ -54,11 +59,11 @@ export default class PiTube {
 
             this.$el.appendChild($channelsEl);
         } else {
-            this.$el.innerHTML =
+            this.$el.innerHTML = this.$el.innerHTML.concat(
                 `<div class="loading-wrapper">
                     <span class="fa fa-spinner fa-spin"></span>
-                 </div>
-                `
+                 </div>`
+            );
         }
 
         return this;
