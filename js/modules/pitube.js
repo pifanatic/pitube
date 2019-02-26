@@ -10,6 +10,7 @@ export default class PiTube {
         $container.appendChild(this.$el);
 
         this._hasLoaded = false;
+        this._filtered = false;
 
         let usernames = Config.USERNAMES;
         this.channels = usernames.map(username => new Channel(username));
@@ -24,7 +25,16 @@ export default class PiTube {
     }
 
     filterToday() {
-        this.channels.forEach(channel => channel.filterToday());
+        let todayCount = 0;
+
+        this._filtered = !this._filtered;
+
+        this.channels.forEach(channel => {
+            channel.filterToday();
+            todayCount += channel.todayCount();
+        });
+
+        this.$el.classList.toggle("empty", todayCount === 0 && this._filtered);
     }
 
     renderFilterIcon() {
@@ -42,6 +52,12 @@ export default class PiTube {
             <div id="header" class="header">
                 <span class="title-icon fa fa-youtube-play"></span>
                 <span class="title">PiTube</span>
+            </div>
+            <div class="empty-message">
+                <span>
+                    No videos were published today!<br>
+                    <span class="fa fa-frown-o sad-face"></span>
+                </span>
             </div>
         `;
 
