@@ -70,6 +70,10 @@ body {
     display: flex;
 }
 
+.pitube.empty .channels {
+    display: none;
+}
+
 .channel.hidden {
     display: none;
 }
