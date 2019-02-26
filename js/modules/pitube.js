@@ -75,11 +75,10 @@ export default class PiTube {
 
             this.$el.appendChild($channelsEl);
         } else {
-            this.$el.innerHTML = this.$el.innerHTML.concat(
+            this.$el.innerHTML +=
                 `<div class="loading-wrapper">
                     <span class="fa fa-spinner fa-spin"></span>
-                 </div>`
-            );
+                 </div>`;
         }
 
         return this;
