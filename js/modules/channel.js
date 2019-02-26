@@ -43,7 +43,7 @@ export default class Channel {
     }
 
     filterToday() {
-        this.toggleHidden(false);
+        this.toggleHidden();
         this.videos.forEach(video => video.toggleToday());
     }
 
