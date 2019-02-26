@@ -12,8 +12,13 @@ body {
 }
 
 .pitube > .loading-wrapper {
+    display: none;
     font-size: 80px;
     height: 100vh;
+}
+
+.pitube.loading > .loading-wrapper {
+    display: flex;
 }
 
 .channels {
