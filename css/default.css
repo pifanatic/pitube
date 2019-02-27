@@ -11,8 +11,15 @@ body {
     justify-content: center;
 }
 
+.pitube {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
 .pitube > .loading-wrapper {
     display: none;
+    flex: 1;
     font-size: 80px;
     height: 100vh;
 }
@@ -22,7 +29,9 @@ body {
 }
 
 .channels {
-    margin-top: 80px;
+    overflow-y: scroll;
+    padding-top: 40px;
+    flex: 1;
 }
 
 .header {
@@ -33,10 +42,6 @@ body {
     font-size: 40px;
     height: 50px;
     justify-content: center;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 1;
 }
 
 .header > .title-icon {
@@ -59,6 +64,7 @@ body {
     display: none;
 
     color: #999;
+    flex: 1;
     font-size: 35px;
     height: 100vh;
     align-items: center;
