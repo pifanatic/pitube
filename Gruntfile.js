@@ -19,7 +19,7 @@ module.exports = function(grunt) {
             options: {
                 implementation: sass
             },
-            dist: {
+            devel: {
                 files: {
                     "dist/css/default.css": "css/main.scss"
                 }
@@ -30,5 +30,5 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks("grunt-contrib-copy");
     grunt.loadNpmTasks('grunt-sass');
 
-    grunt.registerTask("devel", ["copy", "sass"]);
+    grunt.registerTask("devel", ["copy", "sass:devel"]);
 }
