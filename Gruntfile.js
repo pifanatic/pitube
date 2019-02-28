@@ -1,3 +1,5 @@
+const sass = require("node-sass");
+
 module.exports = function(grunt) {
 
     grunt.initConfig({
@@ -7,16 +9,26 @@ module.exports = function(grunt) {
                     src: [
                         "index.html",
                         "favicon.ico",
-                        "js/**",
-                        "css/**"
+                        "js/**"
                     ],
                     dest: "dist/"
                 }]
+            }
+        },
+        sass: {
+            options: {
+                implementation: sass
+            },
+            dist: {
+                files: {
+                    "dist/css/default.css": "css/default.css"
+                }
             }
         }
     });
 
     grunt.loadNpmTasks("grunt-contrib-copy");
+    grunt.loadNpmTasks('grunt-sass');
 
-    grunt.registerTask("devel", ["copy"]);
+    grunt.registerTask("devel", ["copy", "sass"]);
 }
