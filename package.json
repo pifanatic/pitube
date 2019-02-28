@@ -1,0 +1,19 @@
+{
+  "name": "pitube",
+  "version": "1.0.0",
+  "description": "Get an overview of the latest videos of your favorite YouTube channels!",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pifanatic/pitube.git"
+  },
+  "keywords": [
+    "youtube",
+    "es6",
+    "javascript"
+  ],
+  "author": "Kai Mörker",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/pifanatic/pitube/issues"
+  }
+}
