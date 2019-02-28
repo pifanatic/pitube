@@ -1,3 +1,5 @@
 live.html
 deploy.sh
 js/my-config.js
+node_modules/
+dist/
