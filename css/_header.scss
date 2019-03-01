@@ -1,0 +1,25 @@
+.header {
+    align-items: center;
+    background-color: #333;
+    color: #fff;
+    display: flex;
+    font-size: 40px;
+    height: 50px;
+    justify-content: center;
+}
+
+.header > .title-icon {
+    color: #f00;
+    margin-right: 10px;
+}
+
+.header > .filter {
+    cursor: pointer;
+    font-size: 26px;
+    position: absolute;
+    right: 40px;
+}
+
+.header > .filter:hover {
+    color: red;
+}
