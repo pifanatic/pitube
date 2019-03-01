@@ -2,6 +2,10 @@ const sass = require("node-sass");
 
 module.exports = function(grunt) {
 
+    if (!grunt.file.exists("config.js")) {
+        grunt.fail.fatal("No config.js found!");
+    }
+
     grunt.initConfig({
         copy: {
             main: {
