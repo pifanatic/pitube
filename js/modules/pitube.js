@@ -1,5 +1,5 @@
 import      Channel from "./channel.js";
-import * as Config  from "../config.js";
+import * as Config  from "../../config.js";
 
 export default class PiTube {
     constructor(options) {

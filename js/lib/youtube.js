@@ -1,6 +1,6 @@
 import * as HTTP   from "./http.js";
 import      Video  from "../modules/video.js";
-import * as Config from "../config.js";
+import * as Config from "../../config.js";
 
 export const URL = "https://www.youtube.com/";
 
