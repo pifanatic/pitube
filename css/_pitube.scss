@@ -2,46 +2,48 @@
     display: flex;
     flex-direction: column;
     height: 100vh;
-}
 
-.pitube > .loading-wrapper {
-    display: none;
-    flex: 1;
-    font-size: 80px;
-    height: 100vh;
-}
+    > .loading-wrapper {
+        display: none;
+        flex: 1;
+        font-size: 80px;
+        height: 100vh;
+    }
 
-.pitube.loading > .loading-wrapper {
-    display: flex;
-}
+    &.loading > .loading-wrapper {
+        display: flex;
+    }
 
-.channels {
-    overflow-y: scroll;
-    padding-top: 40px;
-    flex: 1;
-}
+    .channels {
+        overflow-y: scroll;
+        padding-top: 40px;
+        flex: 1;
+    }
 
-.empty-message {
-    display: none;
+    .empty-message {
+        display: none;
 
-    color: #999;
-    flex: 1;
-    font-size: 35px;
-    height: 100vh;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    line-height: 2em;
-}
+        color: #999;
+        flex: 1;
+        font-size: 35px;
+        height: 100vh;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        line-height: 2em;
 
-.empty-message .sad-face {
-    font-size: 55px;
-}
+        .sad-face {
+            font-size: 55px;
+        }
+    }
 
-.pitube.empty .empty-message {
-    display: flex;
-}
+    &.empty {
+        .empty-message {
+            display: flex;
+        }
 
-.pitube.empty .channels {
-    display: none;
+        .channels {
+            display: none;
+        }
+    }
 }
