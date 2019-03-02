@@ -11,7 +11,10 @@ module.exports = function(grunt) {
                 implementation: sass
             },
             devel: {
-                files: files
+                files: files,
+                options: {
+                    sourceComments: true
+                }
             },
             prod: {
                 files: files,
