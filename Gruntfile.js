@@ -7,4 +7,6 @@ module.exports = function(grunt) {
     grunt.loadTasks("./grunt/");
 
     grunt.registerTask("devel", ["clean", "copy", "sass:devel"]);
+
+    grunt.registerTask("prod", ["clean", "copy", "sass:prod"]);
 }
