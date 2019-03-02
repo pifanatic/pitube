@@ -7,62 +7,62 @@
     margin-right: 10px;
     padding-bottom: 15px;
     width: 288px;
-}
 
-.video:hover {
-    cursor: pointer;
+    &:hover {
+        cursor: pointer;
 
-    box-shadow: 0px 0px 8px 3px #666;
-}
+        box-shadow: 0px 0px 8px 3px #666;
+    }
 
-.video.today {
-    background-color: yellow;
-}
+    &.today {
+        background-color: yellow;
+    }
 
-.video.hidden {
-    display: none;
-}
+    &.hidden {
+        display: none;
+    }
 
-.video-title {
-    font-weight: 800;
-    font-size: 14px;
-    margin-bottom: 20px;
-    overflow: hidden;
-    padding: 5px;
-}
+    .video-title {
+        font-weight: 800;
+        font-size: 14px;
+        margin-bottom: 20px;
+        overflow: hidden;
+        padding: 5px;
+    }
 
-.video-thumbnail {
-    width: 100%;
-}
+    .video-thumbnail {
+        width: 100%;
+    }
 
-.video .loading-wrapper {
-    font-size: 35px;
-    height: 160px;
-}
+    .loading-wrapper {
+        font-size: 35px;
+        height: 160px;
+    }
 
-.video-info, .video-duration {
-    position: absolute;
+    .video-info, .video-duration {
+        position: absolute;
 
-    bottom: 5px;
+        bottom: 5px;
 
-    color: #666;
-    font-size: 14px;
-}
+        color: #666;
+        font-size: 14px;
+    }
 
-.video-info {
-    font-style: italic;
-    padding-left: 5px;
-}
+    .video-info {
+        font-style: italic;
+        padding-left: 5px;
 
-.video-info .icon-calendar {
-    margin-right: 3px;
-}
+        .icon-calendar {
+            margin-right: 3px;
+        }
+    }
 
-.video-duration {
-    font-weight: bold;
-    right: 5px;
-}
+    .video-duration {
+        font-weight: bold;
+        right: 5px;
 
-.video-duration .icon-clock {
-    margin-right: 3px;
+        .icon-clock {
+            margin-right: 3px;
+        }
+    }
 }
