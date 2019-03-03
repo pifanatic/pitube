@@ -9,4 +9,6 @@ module.exports = function(grunt) {
     grunt.registerTask("devel", ["clean", "copy", "sass:devel"]);
 
     grunt.registerTask("prod", ["clean", "copy", "sass:prod"]);
+
+    grunt.registerTask("watch", ["chokidar"]);
 }
