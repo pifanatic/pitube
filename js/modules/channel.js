@@ -1,5 +1,6 @@
 import * as YouTube from "../lib/youtube.js";
 import      Video   from "./video.js";
+import      Lang    from "../lib/lang.js";
 
 export default class Channel {
     constructor(username) {
@@ -65,12 +66,12 @@ export default class Channel {
                 <img class="channel-avatar" src="${this.avatarUrl}"/>
                 <span class="channel-title">${this.title}</span>
                 <span class="youtube-icon fa fa-youtube"
-                    title="Visit ${this.username} on YouTube"
+                    title="${Lang.get("channel_visit", this.username)}"
                     onclick=window.open("${YouTube.getChannelUrl(this.username)}")>
                 </span>
                 <span class="icon-arrow fa fa-chevron-down"
                     onclick="getElementById('${this.username}').classList.toggle('collapsed')"
-                    title="Toggle visibility">
+                    title="${Lang.get("channel_toggle_visibility")}">
                 </span>
              </div>`;
 
