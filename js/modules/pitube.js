@@ -1,5 +1,6 @@
 import      Channel from "./channel.js";
 import * as Config  from "../../config.js";
+import      Lang    from "../lib/lang.js";
 
 export default class PiTube {
     constructor(options) {
@@ -41,7 +42,7 @@ export default class PiTube {
         let $filterIcon = document.createElement("span");
 
         $filterIcon.classList.add("fa", "fa-calendar", "filter");
-        $filterIcon.setAttribute("title", "Show only today's videos");
+        $filterIcon.setAttribute("title", Lang.get("filter_today_title"));
         $filterIcon.addEventListener("click", () => this.filterToday());
 
         document.getElementById("header").appendChild($filterIcon);
@@ -57,7 +58,7 @@ export default class PiTube {
             </div>
             <div class="empty-message">
                 <span>
-                    No videos were published today!<br>
+                    ${Lang.get("no_videos_today")}<br>
                     <span class="fa fa-frown-o sad-face"></span>
                 </span>
             </div>
