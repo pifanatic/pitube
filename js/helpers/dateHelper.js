@@ -1,3 +1,5 @@
+import Lang from "../lib/lang.js";
+
 export function isToday(date) {
     let today = new Date();
 
@@ -16,13 +18,13 @@ export function isYesterday(date) {
 
 export function formatDate(date) {
     if (this.isToday(date)) {
-        return "Today";
+        return Lang.get("common_today");
     } else if (this.isYesterday(date)) {
-        return "Yesterday";
+        return Lang.get("common_yesterday");
     }
-    return date.toLocaleString("en", { weekday: "short", day: "2-digit", month: "short" });
+    return date.toLocaleString(Lang.getLang(), { weekday: "short", day: "2-digit", month: "short" });
 };
 
 export function formatTime(date) {
-    return date.toLocaleString("en", { minute: "2-digit", hour: "2-digit" });
+    return date.toLocaleString(Lang.getLang(), { minute: "2-digit", hour: "2-digit" });
 };
