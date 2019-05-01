@@ -3,6 +3,8 @@ import Keys from "./langKeys.js";
 class Lang {
     constructor() {
         this.currentLang = "en";
+
+        this._supportedLanguages = ["de", "en"];
     }
 
     /**
@@ -35,6 +37,9 @@ class Lang {
      * Set the current language to use
      */
     setLang(lang) {
+        if (this.getSupportedLanguages().indexOf(lang) === -1) {
+            throw new Error(`Lang: "${lang}" is not a supported language!`);
+        }
         this.currentLang = lang;
     }
 
@@ -43,6 +48,13 @@ class Lang {
      */
     getLang() {
         return this.currentLang;
+    }
+
+    /**
+     * Get all supported languages
+     */
+    getSupportedLanguages() {
+        return this._supportedLanguages;
     }
 }
 
