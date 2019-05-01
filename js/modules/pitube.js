@@ -48,6 +48,28 @@ export default class PiTube {
         document.getElementById("header").appendChild($filterIcon);
     }
 
+    renderLangIcons() {
+        let languages = Lang.getSupportedLanguages(),
+            $el = document.createElement("span");
+
+        $el.classList.add("lang-icons");
+
+        languages.forEach(lang => {
+            let $icon = document.createElement("img");
+            $icon.setAttribute("src", `img/${lang}.png`);
+            $icon.classList.toggle("active", Lang.getLang() === lang);
+
+            $icon.addEventListener("click", () => {
+                Lang.setLang(lang);
+
+                this.render();
+            });
+            $el.appendChild($icon);
+        });
+
+        document.getElementById("header").appendChild($el)
+    }
+
     render() {
         this.$el.classList.toggle("loading", !this._hasLoaded);
 
@@ -66,6 +88,8 @@ export default class PiTube {
                 <span class="fa fa-spinner fa-spin"></span>
              </div>
         `;
+
+        this.renderLangIcons();
 
         if (this._hasLoaded) {
             this.renderFilterIcon();
