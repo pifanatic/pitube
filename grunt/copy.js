@@ -7,6 +7,7 @@ module.exports = function(grunt) {
                         "index.html",
                         "favicon.ico",
                         "js/**",
+                        "img/*",
                         "config.js"
                     ],
                     dest: "dist/"
