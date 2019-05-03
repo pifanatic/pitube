@@ -75,10 +75,6 @@ export default class Channel {
                 </span>
              </div>`;
 
-        return this.$el;
-    }
-
-    renderVideos() {
         let $videos = document.createElement("div");
         $videos.classList.add("videos");
 
@@ -87,5 +83,7 @@ export default class Channel {
         this.videos.forEach(video => {
             $videos.appendChild(video.render());
         });
+
+        return this.$el;
     }
 }

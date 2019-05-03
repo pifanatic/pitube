@@ -99,8 +99,6 @@ export default class PiTube {
 
             this.channels.forEach(channel => {
                 $channelsEl.appendChild(channel.render());
-
-                channel.renderVideos();
             });
 
             this.$el.appendChild($channelsEl);
