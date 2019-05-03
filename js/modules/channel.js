@@ -49,13 +49,10 @@ export default class Channel {
      * Adds class "hidden" to all videos that have not been published today
      */
     filterToday() {
-        this.toggleHidden();
-        this.videos.forEach(video => video.toggleToday());
-    }
-
-    toggleHidden() {
         this.hidden = this.todayCount() === 0 && !this.hidden;
         this.$el.classList.toggle("hidden", this.hidden);
+
+        this.videos.forEach(video => video.toggleToday());
     }
 
     render() {
