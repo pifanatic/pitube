@@ -33,6 +33,24 @@ export default class Channel {
         return Promise.all(promises);
     }
 
+    /**
+     * Count the number of videos in this channel that match a predicate function
+     *
+     * @param {Function} fn A function that takes a video as its sole parameter
+     * and returns a Boolean value
+     *
+     * @returns {Number} the number of videos that pass the predicate function
+     */
+    countVideos(fn) {
+        let count = 0;
+
+        this.videos.forEach(video => {
+            count += fn(video) ? 1 : 0;
+        });
+
+        return count;
+    }
+
     todayCount() {
         let count = 0;
 
