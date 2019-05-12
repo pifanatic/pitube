@@ -37,7 +37,7 @@ export default class PiTube {
 
         this.channels.forEach(channel => {
             channel.filterToday();
-            todayCount += channel.todayCount();
+            todayCount += channel.countVideos(video => video.isToday);
         });
 
         this.$el.classList.toggle("empty", todayCount === 0 && this._filtered);
