@@ -51,18 +51,6 @@ export default class Channel {
         return count;
     }
 
-    recentCount() {
-        let count = 0;
-
-        this.videos.forEach(video => {
-            if (video.isRecent) {
-                count++;
-            }
-        });
-
-        return count;
-    }
-
     /**
      * Adds class "hidden" to all videos that have not been published today
      */
@@ -78,7 +66,7 @@ export default class Channel {
      * last 24 hours
      */
     filterRecent() {
-        this.hidden = this.recentCount() === 0 && !this.hidden;
+        this.hidden = this.countVideos(video => video.isRecent) === 0 && !this.hidden;
         this.$el.classList.toggle("hidden", this.hidden);
 
         this.videos.forEach(video => video.toggleIsRecent());

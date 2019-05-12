@@ -50,7 +50,7 @@ export default class PiTube {
 
         this.channels.forEach(channel => {
             channel.filterRecent();
-            recentCount += channel.recentCount();
+            recentCount += channel.countVideos(video => video.isRecent);
         });
 
         this.$el.classList.toggle("empty", recentCount === 0 && this._filtered);
