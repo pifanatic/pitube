@@ -15,6 +15,11 @@ export default class PiTube {
 
         let usernames = Config.USERNAMES;
         this.channels = usernames.map(username => new Channel(username));
+
+        let lang = localStorage.getItem("pitube.lang");
+        if (lang) {
+            Lang.setLang(lang);
+        }
     }
 
     load() {
@@ -61,6 +66,7 @@ export default class PiTube {
 
             $icon.addEventListener("click", () => {
                 Lang.setLang(lang);
+                localStorage.setItem("pitube.lang", lang);
 
                 this.render();
             });
