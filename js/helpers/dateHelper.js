@@ -16,6 +16,19 @@ export function isYesterday(date) {
     return this.isToday(dateToCheck);
 };
 
+/**
+ * Check if given Date is no more than 24 hours in the past
+ *
+ * @param {Date} date a JavaScript Date object
+ *
+ * @returns {Boolean} Date is no more than 24 hours in the past
+ */
+export function isRecent(date) {
+    let now = new Date();
+
+    return now > date && now - date < 24 * 60 * 60 * 1000;
+}
+
 export function formatDate(date) {
     if (this.isToday(date)) {
         return Lang.get("common_today");
