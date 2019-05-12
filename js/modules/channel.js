@@ -37,7 +37,7 @@ export default class Channel {
         let count = 0;
 
         this.videos.forEach(video => {
-            if (video.today) {
+            if (video.isToday) {
                 count++;
             }
         });
@@ -52,7 +52,7 @@ export default class Channel {
         this.hidden = this.todayCount() === 0 && !this.hidden;
         this.$el.classList.toggle("hidden", this.hidden);
 
-        this.videos.forEach(video => video.toggleToday());
+        this.videos.forEach(video => video.toggleIsToday());
     }
 
     render() {

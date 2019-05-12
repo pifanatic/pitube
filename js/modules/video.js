@@ -20,7 +20,7 @@ export default class Video {
         return YouTube.getVideo(this.id)
                       .then(data => {
                           Object.assign(this, data);
-                          this.today = DateHelper.isToday(this.publishedAt);
+                          this.isToday = DateHelper.isToday(this.publishedAt);
                           this.loadThumbnail();
                       });
     }
@@ -38,15 +38,15 @@ export default class Video {
         this.img = img;
     }
 
-    toggleToday() {
-        this.hidden = !this.today && !this.hidden;
+    toggleIsToday() {
+        this.hidden = !this.isToday && !this.hidden;
 
         this.$el.classList.toggle("hidden", this.hidden);
     }
 
     render() {
         if (this._hasLoaded) {
-            this.$el.classList.toggle("today", this.today);
+            this.$el.classList.toggle("today", this.isToday);
 
             this.$el.innerHTML =
                 `${this.img.outerHTML}
