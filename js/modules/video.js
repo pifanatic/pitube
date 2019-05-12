@@ -21,6 +21,7 @@ export default class Video {
                       .then(data => {
                           Object.assign(this, data);
                           this.isToday = DateHelper.isToday(this.publishedAt);
+                          this.isRecent = DateHelper.isRecent(this.publishedAt);
                           this.loadThumbnail();
                       });
     }
