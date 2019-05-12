@@ -43,14 +43,40 @@ export default class PiTube {
         this.$el.classList.toggle("empty", todayCount === 0 && this._filtered);
     }
 
-    renderFilterIcon() {
-        let $filterIcon = document.createElement("span");
+    filterRecent() {
+        let recentCount = 0;
 
-        $filterIcon.classList.add("fa", "fa-calendar", "filter");
-        $filterIcon.setAttribute("title", Lang.get("filter_today_title"));
-        $filterIcon.addEventListener("click", () => this.filterToday());
+        this._filtered = !this._filtered;
 
-        document.getElementById("header").appendChild($filterIcon);
+        this.channels.forEach(channel => {
+            channel.filterRecent();
+            recentCount += channel.recentCount();
+        });
+
+        this.$el.classList.toggle("empty", recentCount === 0 && this._filtered);
+    }
+
+    renderFilterIcons() {
+        let $filterIcons = document.createElement("span");
+        $filterIcons.classList.add("filter-icons");
+
+        let $filterTodayIcon = document.createElement("span");
+
+        $filterTodayIcon.classList.add("fa", "fa-calendar", "filter-icon");
+        $filterTodayIcon.setAttribute("title", Lang.get("filter_today_title"));
+        $filterTodayIcon.addEventListener("click", () => this.filterToday());
+
+        $filterIcons.appendChild($filterTodayIcon);
+
+        let $filterRecentIcon = document.createElement("span");
+
+        $filterRecentIcon.classList.add("fa", "fa-clock-o", "filter-icon");
+        $filterRecentIcon.setAttribute("title", Lang.get("filter_recent_title"));
+        $filterRecentIcon.addEventListener("click", () => this.filterRecent());
+
+        $filterIcons.appendChild($filterRecentIcon);
+
+        document.getElementById("header").appendChild($filterIcons);
     }
 
     renderLangIcons() {
@@ -98,7 +124,7 @@ export default class PiTube {
         this.renderLangIcons();
 
         if (this._hasLoaded) {
-            this.renderFilterIcon();
+            this.renderFilterIcons();
 
             let $channelsEl = document.createElement("div");
             $channelsEl.classList.add("channels");

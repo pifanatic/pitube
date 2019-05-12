@@ -12,11 +12,16 @@
         margin-right: 10px;
     }
 
-    .filter {
-        cursor: pointer;
+    .filter-icons {
         font-size: 26px;
         position: absolute;
         right: 40px;
+    }
+
+    .filter-icon {
+        cursor: pointer;
+
+        margin: 0px 8px;
 
         &:hover {
             color: red;
