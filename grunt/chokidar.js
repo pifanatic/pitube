@@ -7,7 +7,8 @@ module.exports = function(grunt) {
             files: [
                 "js/**/*.js",
                 "css/*.scss",
-                "index.html"
+                "index.html",
+                "config.js"
             ],
             tasks: ["devel"]
         }
