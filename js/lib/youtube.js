@@ -113,12 +113,12 @@ export function searchVideos(channelId) {
 /**
     Return the URL to the videos section of a YouTube channel
 
-    @param username The username of the channel
+    @param id The id of the channel
 
     @returns the url to the channel's video section
 */
-export function getChannelUrl(username) {
-    return `${URL}user/${username}/videos`;
+export function getChannelUrl(id) {
+    return `${URL}channel/${id}/videos`;
 }
 
 /**

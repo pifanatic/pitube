@@ -74,21 +74,21 @@ export default class Channel {
 
     render() {
         this.$el.classList.add("channel");
-        this.$el.setAttribute("id", this.username);
+        this.$el.setAttribute("id", this.id);
 
         this.$el.innerHTML =
             `<div class="channel-header">
                 <img class="channel-avatar" src="${this.avatarUrl}"/>
                 <span class="channel-title">${this.title}</span>
 
-                <a href="${YouTube.getChannelUrl(this.username)}" target="_blank" rel="noreferrer">
+                <a href="${YouTube.getChannelUrl(this.id)}" target="_blank" rel="noreferrer">
                     <span class="youtube-icon fa fa-youtube"
-                        title="${Lang.get("channel_visit", this.username)}"
+                        title="${Lang.get("channel_visit", this.title)}"
                     </span>
                 </a>
 
                 <span class="icon-arrow fa fa-chevron-down"
-                    onclick="getElementById('${this.username}').classList.toggle('collapsed')"
+                    onclick="getElementById('${this.id}').classList.toggle('collapsed')"
                     title="${Lang.get("channel_toggle_visibility")}">
                 </span>
              </div>`;
