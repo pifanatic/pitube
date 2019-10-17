@@ -26,14 +26,14 @@ function get(url, options) {
     - title
     - avatarUrl
 
-    @param username The exact username of a YouTube channel
+    @param id The channel id of a YouTube channel
 
     @returns a Promise that resolves with an object containing information about
         a YouTube channel
 */
-export function getChannel(username) {
+export function getChannel(id) {
     let options = {
-        forUsername: username,
+        id: id,
         maxResults: 1,
         fields: "items(id,snippet(thumbnails/default/url,title))"
     };

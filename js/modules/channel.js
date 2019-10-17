@@ -3,8 +3,8 @@ import      Video   from "./video.js";
 import      Lang    from "../lib/lang.js";
 
 export default class Channel {
-    constructor(username) {
-        this.username = username;
+    constructor(id) {
+        this.id = id;
         this.videos = [];
         this.hidden = false;
 
@@ -12,7 +12,7 @@ export default class Channel {
     }
 
     load() {
-        return YouTube.getChannel(this.username)
+        return YouTube.getChannel(this.id)
                       .then(data => {
                           Object.assign(this, data);
                           return YouTube.searchVideos(this.id);
