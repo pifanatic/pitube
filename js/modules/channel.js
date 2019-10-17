@@ -80,10 +80,13 @@ export default class Channel {
             `<div class="channel-header">
                 <img class="channel-avatar" src="${this.avatarUrl}"/>
                 <span class="channel-title">${this.title}</span>
-                <span class="youtube-icon fa fa-youtube"
-                    title="${Lang.get("channel_visit", this.username)}"
-                    onclick=window.open("${YouTube.getChannelUrl(this.username)}")>
-                </span>
+
+                <a href="${YouTube.getChannelUrl(this.username)}" target="_blank" rel="noreferrer">
+                    <span class="youtube-icon fa fa-youtube"
+                        title="${Lang.get("channel_visit", this.username)}"
+                    </span>
+                </a>
+
                 <span class="icon-arrow fa fa-chevron-down"
                     onclick="getElementById('${this.username}').classList.toggle('collapsed')"
                     title="${Lang.get("channel_toggle_visibility")}">
