@@ -4,7 +4,9 @@ import      Lang    from "../lib/lang.js";
 
 export default class PiTube {
     constructor(options) {
-        let $container = document.querySelector(options.el);
+        let $container = document.querySelector(options.el),
+            usernames = Config.USERNAMES,
+            lang = localStorage.getItem("pitube.lang");
 
         this.$el = document.createElement("div");
         this.$el.classList.add("pitube");
@@ -13,10 +15,8 @@ export default class PiTube {
         this._hasLoaded = false;
         this._filtered = false;
 
-        let usernames = Config.USERNAMES;
         this.channels = usernames.map(username => new Channel(username));
 
-        let lang = localStorage.getItem("pitube.lang");
         if (lang) {
             Lang.setLang(lang);
         }
