@@ -1,4 +1,4 @@
-export const USERNAMES = [
+export const IDS = [
     "UCBR8-60-B28hp2BmDPdntcQ" // YouTube
 ];
 
