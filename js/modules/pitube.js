@@ -4,13 +4,10 @@ import      Lang    from "../lib/lang.js";
 
 export default class PiTube {
     constructor(options) {
-        let $container = document.querySelector(options.el),
-            ids = Config.IDS,
+        let ids = Config.IDS,
             lang = localStorage.getItem("pitube.lang");
 
-        this.$el = document.createElement("div");
-        this.$el.classList.add("pitube");
-        $container.appendChild(this.$el);
+        this.$container = document.querySelector(options.el);
 
         this._hasLoaded = false;
         this._filtered = false;
@@ -103,6 +100,12 @@ export default class PiTube {
     }
 
     render() {
+        if (!this.$el) {
+            this.$el = document.createElement("div");
+            this.$el.classList.add("pitube");
+            this.$container.appendChild(this.$el);
+        }
+
         this.$el.classList.toggle("loading", !this._hasLoaded);
 
         this.$el.innerHTML = `
