@@ -15,13 +15,13 @@ let keys = {
         de: "Gestern",
         en: "Yesterday"
     },
-    filter_today_title: {
-        de: "Nur heutige Videos anzeigen",
-        en: "Show only today's videos"
-    },
     filter_recent_title: {
         de: "Nur Videos der letzten 24 Stunden anzeigen",
         en: "Show only videos from last 24 hours"
+    },
+    filter_today_title: {
+        de: "Nur heutige Videos anzeigen",
+        en: "Show only today's videos"
     },
     no_videos_today: {
         de: "Heute wurden keine Videos veröffentlicht!",
