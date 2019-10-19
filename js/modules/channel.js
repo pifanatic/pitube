@@ -83,7 +83,7 @@ export default class Channel {
 
                 <a href="${YouTube.getChannelUrl(this.id)}" target="_blank" rel="noreferrer">
                     <span class="youtube-icon fa fa-youtube"
-                        title="${Lang.get("channel_visit", this.title)}"
+                        title="${Lang.get("channel_visit", this.title)}">
                     </span>
                 </a>
 
