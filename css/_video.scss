@@ -21,6 +21,11 @@
         display: none;
     }
 
+    > a {
+        color: initial;
+        text-decoration: none;
+    }
+
     .video-title {
         font-weight: 800;
         font-size: 14px;
