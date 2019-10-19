@@ -49,25 +49,25 @@ export default class Video {
 
     render() {
         if (this._hasLoaded) {
-            this.$el.innerHTML =
-                `<a href="${YouTube.getWatchUrl(this.id)}" rel="noreferrer" target="_blank">
+            this.$el.innerHTML = `
+                <a href="${YouTube.getWatchUrl(this.id)}" rel="noreferrer" target="_blank">
                     ${this.img.outerHTML}
-                     <div class="video-title">${this.title}</div>
-                     <span class="video-info">
+                    <div class="video-title">${this.title}</div>
+                    <span class="video-info">
                         <span class="icon-calendar fa fa-calendar"></span>
                         ${DateHelper.formatDate(this.publishedAt)},
                         ${DateHelper.formatTime(this.publishedAt)}
-                     </span>
-                     <span class="video-duration">
+                    </span>
+                    <span class="video-duration">
                         <span class="icon-clock fa fa-clock-o"></span>
                         ${DurationHelper.format(this.duration)}
-                     </span>
-                 </a>`;
+                    </span>
+                </a>`;
         } else {
-            this.$el.innerHTML =
-                `<div class="loading-wrapper">
+            this.$el.innerHTML = `
+                <div class="loading-wrapper">
                     <span class="fa fa-spinner fa-spin"></span>
-                 </div>`;
+                </div>`;
         }
 
         return this.$el;

@@ -76,8 +76,8 @@ export default class Channel {
         this.$el.classList.add("channel");
         this.$el.setAttribute("id", this.id);
 
-        this.$el.innerHTML =
-            `<div class="channel-header">
+        this.$el.innerHTML = `
+            <div class="channel-header">
                 <img class="channel-avatar" src="${this.avatarUrl}"/>
                 <span class="channel-title">${this.title}</span>
 
@@ -91,7 +91,7 @@ export default class Channel {
                     onclick="getElementById('${this.id}').classList.toggle('collapsed')"
                     title="${Lang.get("channel_toggle_visibility")}">
                 </span>
-             </div>`;
+            </div>`;
 
         let $videos = document.createElement("div");
         $videos.classList.add("videos");
