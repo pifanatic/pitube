@@ -16,6 +16,10 @@
         padding: 5px;
         padding-right: 8px;
 
+        > a {
+            text-decoration: none;
+        }
+
         .youtube-icon {
             color: #999;
             cursor: pointer;
