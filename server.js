@@ -53,7 +53,7 @@ server.get("/api/channels", (req, res) => {
 server.get("/api/search", (req, res) => {
     let items = [];
 
-    for(let i = 0; i < req.query.maxResults; i++) {
+    for (let i = 0; i < req.query.maxResults; i++) {
         items.push({
             id: {
                 videoId: `video_${i}`
