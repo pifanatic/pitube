@@ -1,12 +1,29 @@
-const express = require("express");
+const express = require("express"),
+      logUpdate = require("log-update");
 
 let server = express(),
-    usedQuota = 0;
+    currentUsedQuota = 0,
+    totalUsedQuota = 0;
+
+const CURRENT_QUOTA_INTERVAL = 10;
 
 function updateQuota(points) {
-    usedQuota += points;
+    currentUsedQuota += points;
+    totalUsedQuota += points;
 
-    console.log(`Used quota: ${usedQuota}`);
+    showQuota();
+
+    setTimeout(points => {
+        currentUsedQuota -= points;
+        showQuota();
+    }, CURRENT_QUOTA_INTERVAL * 1000, points);
+}
+
+function showQuota() {
+    logUpdate(
+        `[QUOTA] TOTAL: ${totalUsedQuota} | ` +
+        `LAST ${CURRENT_QUOTA_INTERVAL} SEC: ${currentUsedQuota}`
+    );
 }
 
 server.use(express.static("dist"));
