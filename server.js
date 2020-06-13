@@ -1,10 +1,19 @@
 const express = require("express");
 
-let server = express();
+let server = express(),
+    usedQuota = 0;
+
+function updateQuota(points) {
+    usedQuota += points;
+
+    console.log(`Used quota: ${usedQuota}`);
+}
 
 server.use(express.static("dist"));
 
 server.get("/api/channels", (req, res) => {
+    updateQuota(3);
+
     res.json(
         {
             "items": [
@@ -35,10 +44,14 @@ server.get("/api/search", (req, res) => {
         });
     }
 
+    updateQuota(100);
+
     res.json({ "items": items });
 });
 
 server.get("/api/videos", (req, res) => {
+    updateQuota(4);
+
     res.json(
         {
             "items": [
