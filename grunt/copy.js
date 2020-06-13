@@ -1,16 +1,28 @@
 module.exports = function(grunt) {
+    let destFolder = "dist/",
+        commonSourceFiles = [
+            "index.html",
+            "favicon.ico",
+            "js/**",
+            "img/*",
+            "config.js"
+        ],
+        develSourceFiles = [
+            "develAssets/*"
+        ];
+
     grunt.config.merge({
         copy: {
-            main: {
+            devel: {
                 files: [{
-                    src: [
-                        "index.html",
-                        "favicon.ico",
-                        "js/**",
-                        "img/*",
-                        "config.js"
-                    ],
-                    dest: "dist/"
+                    src: commonSourceFiles.concat(develSourceFiles),
+                    dest: destFolder
+                }]
+            },
+            prod: {
+                files: [{
+                    src: commonSourceFiles,
+                    dest: destFolder
                 }]
             }
         }
