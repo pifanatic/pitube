@@ -8,9 +8,9 @@ module.exports = function(grunt) {
 
     grunt.loadTasks("./grunt/");
 
-    grunt.registerTask("devel", defaultTasks.concat(["copy:devel", "sass:devel"]));
+    grunt.registerTask("devel", defaultTasks.concat(["copy:devel", "sass:devel", "template:devel"]));
 
-    grunt.registerTask("prod", defaultTasks.concat(["copy:prod", "sass:prod"]));
+    grunt.registerTask("prod", defaultTasks.concat(["copy:prod", "sass:prod", "template:prod"]));
 
     grunt.registerTask("watch", ["chokidar"]);
 }
