@@ -4,7 +4,7 @@ import * as Config from "../../config.js";
 
 export const URL = "https://www.youtube.com/";
 
-const API_URL = "https://www.googleapis.com/youtube/v3";
+const API_URL = Config.API_URL;
 
 const DEFAULT_PARAMS = {
     part: "snippet",
